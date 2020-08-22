@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router ,Route, Switch} from 'react-router-dom';
+import Navbar from './components/layout/Navbar'
+import TopNews from './components/news/TopNews';
+import Sports from './components/news/Sports'
+import Tennis from './components/news/Tennis'
+import Sport from './components/news/Sport'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+      <Navbar />
+      <section className='container'>
+        <Switch>
+          <Route exact path='/' component={Sport } />
+          <Route exact path='/topNews' component={TopNews } />
+          <Route exact path='/football' component={Sports } />
+          <Route exact path='/tennis' component={Tennis } />
+        </Switch>
+      </section>
+    </Router>
+ </div>
   );
 }
 
