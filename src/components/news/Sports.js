@@ -5,7 +5,7 @@ const Sports = () => {
     const [sports, setsports] = useState([])
      useEffect(() => {
          const func = async () => {
-            const res = await axios.get('http://newsapi.org/v2/everything?q=soccer&from=2020-07-21&sortBy=publishedAt&apiKey=6873ce9956014696adbc4f7a5b61b586')
+            const res = await axios.get('http://newsapi.org/v2/everything?q=soccer&sortBy=publishedAt&apiKey=6873ce9956014696adbc4f7a5b61b586')
             setsports(res.data.articles)
          }
          func()
